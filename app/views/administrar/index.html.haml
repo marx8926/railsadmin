@@ -1,0 +1,145 @@
+%body
+  .navbar.navbar-inverse.navbar-fixed-top
+    .navbar-inner
+      .container
+      %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.brand{:href => "../"} AdminChurch
+      #main-menu.nav-collapse.collapse
+        %ul#main-menu-left.nav
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              Ganar
+              %b.caret
+            %ul#swatch-menu.dropdown-menu
+              %li
+                %a{:href => "../default/"} Registrar
+              %li
+                %a{:href=>''} Buscar
+              %li.divider
+              %li
+                %a{:href => "../amelia/"} Informes
+              %li.divider
+              %li
+                %a{:href=> ""} Dashboard
+              %li.divider
+              %li
+                %a{:href=>""}Administrar
+              %li
+                %a{:href=>""}Lugar
+              %li
+                %a{:href=>""}Estado Civil
+              %li
+                %a{:href=>""}Edades
+             
+          %li#preview-menu.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              Consolidar
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => "bootstrap.min.css", :target => "_blank"} bootstrap.min.css
+              %li
+                %a{:href => "bootstrap.css", :target => "_blank"} bootstrap.css
+              %li.divider
+              %li
+                %a{:href => "variables.less", :target => "_blank"} variables.less
+              %li
+                %a{:href => "bootswatch.less", :target => "_blank"} bootswatch.less
+
+          %li#preview-menu.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              Discipular
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => "bootstrap.min.css", :target => "_blank"} bootstrap.min.css
+              %li
+                %a{:href => "bootstrap.css", :target => "_blank"} bootstrap.css
+              %li.divider
+              %li
+                %a{:href => "variables.less", :target => "_blank"} variables.less
+              %li
+                %a{:href => "bootswatch.less", :target => "_blank"} bootswatch.less
+
+          %li#preview-menu.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              Enviar
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => "bootstrap.min.css", :target => "_blank"} bootstrap.min.css
+              %li
+                %a{:href => "bootstrap.css", :target => "_blank"} bootstrap.css
+              %li.divider
+              %li
+                %a{:href => "variables.less", :target => "_blank"} variables.less
+              %li
+                %a{:href => "bootswatch.less", :target => "_blank"} bootswatch.less
+
+          %li#preview-menu.dropdown
+            %a.dropdown-toggle{"data-toggle"=>"dropdown", :href =>"#"}
+              Contabilidad
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href=>"#"}
+                Primero
+
+          %li#preview-menu.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              Más
+              %b.caret
+            %ul.dropdown-menu
+              
+              %li
+                %a{:href => "#"}
+                  Pedir
+                %ul.dropdown-menu.sub-menu
+                  %li
+                    %a{:href => "#"} Action
+                  %li
+                    %a{:href => "#"} Another action
+              %li
+                %a{:href => "#"}
+                  Eventos
+                %ul.dropdown-menu.sub-menu
+                  %li
+                    %a{:href => "#"} Action
+                  %li
+                    %a{:href => "#"} Another action
+              %li
+                %a{:href => "#"}
+                  secretaria
+                %ul.dropdown-menu.sub-menu
+                  %li
+                    %a{:href => "#"} Action
+                  %li
+                    %a{:href => "#"} Another action
+              %li
+                %a{:href => "#"}
+                  Comunicar
+                %ul.dropdown-menu.sub-menu
+                  %li
+                    %a{:href => "#"} Action
+                  %li
+                    %a{:href => "#"} Another action
+              %li
+                %a{:href => "#"}
+                  Administrar
+                %ul.dropdown-menu.sub-menu
+                  %li
+                    %a{:href => "#"} Action
+                  %li
+                    %a{:href => "#"} Another action
+              
+        %ul#main-menu-right.nav.pull-right
+          %li
+            %a{:href => "https://wrapbootstrap.com/?ref=bsw", :onclick => "_gaq.push(['_trackEvent', 'click', 'outbound', 'wrapbootstrap']);", :rel => "tooltip", :target => "_blank"}
+              
+              %i.icon-user
+          %li
+            %a{:href => ""}
+              = link_to('Salir', destroy_user_session_path)         
