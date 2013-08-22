@@ -11,10 +11,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130816163921) do
+ActiveRecord::Schema.define(version: 20130822172203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "iglesia", force: true do |t|
+    t.date     "creacion"
+    t.string   "telefono"
+    t.string   "direccion"
+    t.string   "referencia"
+    t.float    "latitud"
+    t.float    "longitud"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reds", force: true do |t|
+    t.string   "code"
+    t.string   "tipo"
+    t.string   "direccion"
+    t.string   "referencia"
+    t.float    "latitud"
+    t.float    "longitud"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "telefono"
+  end
+
+  create_table "ubigeos", force: true do |t|
+    t.integer  "nUbigeo_id"
+    t.string   "cUbigeoDesc"
+    t.integer  "nUbigeoDpt"
+    t.integer  "nUbigeoProv"
+    t.integer  "nUbigeoDist"
+    t.integer  "nUbigeoDep"
+    t.float    "nUbigeoLat"
+    t.float    "nUbigeoLng"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

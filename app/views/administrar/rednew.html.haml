@@ -1,0 +1,65 @@
+%body
+	.container
+		.content
+			.row
+				.span9
+					
+					= field_set_tag do
+						= form_tag( administrar_red_path,{:method=>'post', :class=>'form-horizontal'}) do
+							%h2 Creación de Red
+							%legend
+
+							%div{:class=>'form-group'}
+								= label_tag :red, 'Red', :class=>'control-label'
+								%div{:class=>'controls'}
+									= text_field_tag :red,'' , :class=>'input-large'
+
+							%div{:class=>'form-group'}
+								= label_tag :tipo, 'Tipo', :class=>'control-label'
+								%div{:class=>'controls'}
+									= select_tag :tipo, "<option value='h'>Hombres</option><option value='m'>Mujeres</option><option value='hj'>Hombres Jovenes</option><option value='mj'>Mujeres Jovenes</option><option value='mi'>Mixto</option>".html_safe
+
+							%div{:class=>'form-group'}
+								= label_tag :creacion, 'Creación', :class=>'control-label'
+								%div{:class=>'controls'}
+									= date_field_tag :creacion
+
+							%div{:class=>'form-group'}
+								= label_tag :telefono, 'Telefono', :class=>'control-label'
+								%div{:class=>'controls'}
+									= phone_field_tag :telefono, '', :class => 'input-large'
+
+
+							%div{:class=>'form-group'}
+								= label_tag :lider1, 'Lider(*)', :class=>'control-label'
+								%div{:class=>'controls'}
+									= select_tag :lider1
+
+							%div{:class=>'form-group'}
+								= label_tag :lider2, 'Lider', :class=>'control-label'
+								%div{:class=>'controls'}
+									= select_tag :lider2
+
+							%div{:class=>'form-group'}
+								= label_tag :pastorE, 'Pastor Ejecutivo', :class=>'control-label'
+								%div{:class=>'controls'}
+									= select_tag :pastorE
+
+							%div{:class=>'form-group'}
+								= label_tag :direccion,'Dirección', :class=>'control-label'	
+								%div{:class=>'controls'}
+									= text_field_tag :direccion,'' , :class=>'input-xxlarge'
+
+							%div{:class=>'form-group'}
+								= label_tag :referencia,'Referencia', :class=>'control-label'
+								%div{:class=>'controls'}
+									= text_field_tag :referencia,'' , :class=>'input-xxlarge'
+
+							
+							%div{:class=>'form-group'}
+								= label_tag :ubicacion, 'Ubicación', :class=>'control-label'
+								= hidden_field_tag :latitud
+								= hidden_field_tag :longitud
+							= render 'layouts/mapa'
+
+							= submit_tag 'Guardar', :class=>'btn'

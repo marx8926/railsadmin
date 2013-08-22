@@ -1,0 +1,13 @@
+%div{:class => 'form-inline'}
+	= label_tag :departamento,'Departamento', :class=>'control-label'
+	= select_tag :departamento
+	= label_tag :provincia,'Provincia', :class=>'control-label'
+	= select_tag :provincia
+	= label_tag :distrito,'Distrito', :class=>'control-label'
+	= select_tag :distrito
+
+:javascript
+	$(document).ready(function(){
+		ubigeos = getAjaxObject("https://s3.amazonaws.com/adminchurch/ubi.json");		
+		cargarUbigeo(ubigeos, 'distrito','provincia','departamento');
+	});

@@ -1,0 +1,12 @@
+%fieldset.gllpLatlonPicker
+	%div{:class=>'gllpMap'} Google Maps
+	%input{:class=>'gllpLatitude',:type => "hidden", :value=>'-8.112489', :id=>'latitud', :name=>'latitud'}
+	%input{:class=>'gllpLongitude',:type => "hidden", :value=>'-79.0288469', :id=>'longitud', :name=>'longitud'}
+	%input{:class=>'gllpZoom',:type => "hidden", :value=>'15'}
+
+= javascript_include_tag "https://maps.googleapis.com/maps/api/js?sensor=true"
+:javascript
+	$(document).ready(function(){
+
+	});
+

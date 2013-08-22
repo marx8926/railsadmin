@@ -3,7 +3,13 @@
 @import "bootstrap";
 /*body { padding-top: 60px; }*/
 @import "bootstrap-responsive";
+img {
+    max-width:100%;  // change it here
+}
 
+#map_canvas img,
+.google-maps img {
+  max-width: 100%; }
 
 /* MULTI-LEVEL DROPDOWNS FOR BOOTSTRAP */
 .dropdown-menu .sub-menu {
