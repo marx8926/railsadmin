@@ -23,7 +23,9 @@ class AdministrarController < ApplicationController
 			:telefono=>@telefono,:direccion=>@direccion,
 			:referencia=>@referencia,:latitud=>@latitud,
 			:longitud=>@longitud})
-		if @church.save
+		@n = Iglesia.count
+		if @n == 0
+			@church.save
 			flash[:success] = "Registro con exito"	
 		else
 			flash[:error] = "Error en registro"

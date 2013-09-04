@@ -3,7 +3,7 @@
 		.content
 			.row
 				.span9
-					
+					= render 'layouts/messages'
 					= field_set_tag do
 						= form_tag( administrar_red_path,{:method=>'post', :class=>'form-horizontal'}) do
 							%h2 Creación de Red

@@ -1,9 +1,10 @@
+
 %body
 	.container
 		.content
 			.row
 				.span9
-					
+					= render 'layouts/messages'
 					= field_set_tag do
 						= form_tag( administrar_iglesia_path,{:method=>'post'}) do
 							%h2 Iglesia
