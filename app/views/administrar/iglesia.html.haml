@@ -1,9 +1,8 @@
-
 %body
 	.container
 		.content
 			.row
-				.span9
+				.span12
 					= render 'layouts/messages'
 					= field_set_tag do
 						= form_tag( administrar_iglesia_path,{:method=>'post'}) do
@@ -13,7 +12,7 @@
 								= label_tag :creacion, 'Creación', :class=>'control-label'
 								= render 'layouts/fecha'
 								= label_tag :telefono, 'Telefono', :class=>'control-label'
-								= phone_field_tag :telefono, {}, :class => 'input-large'
+								= text_field_tag :telefono, '', :class => 'input-large'
 
 							= render 'layouts/ubigeo'
 							%div{:class=>'form-inline'}
@@ -22,8 +21,17 @@
 							%div{:class=>'form-inline'}
 								= label_tag :referencia,'Referencia', :class=>'control-label'
 								= text_field_tag :referencia,'' , :class=>'input-xxlarge'
+							%div{:class=>'control-group'}
+								=label_tag 'Pastores Ejecutivos'
+								%select{:multiple=>'multiple', :id=>'pe', :size=>6}
+									%option JB
+									%option ESR
+							%div{:class=>'control-group'}
+								=label_tag 'Pastores Asociados'
+								%select{:multiple=>'multiple', :id=>'pa', :size=>6}
+									%option JB
+									%option ESR
 
-							
 							%div{:class=>'control-group'}
 								= label_tag :ubicacion, 'Ubicación', :class=>'control-label'
 								= hidden_field_tag :latitud
@@ -31,3 +39,9 @@
 							= render 'layouts/mapa'
 
 							= submit_tag 'Guardar', :class=>'btn'
+
+= javascript_include_tag 'util/functiongen'
+:javascript
+	$(document).ready(function(){
+		console.log(fechaAhora());
+	});

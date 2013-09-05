@@ -1,6 +1,5 @@
 = form_for(resource, :html=>{:class=>'form-signin'}, :as => resource_name, :url => session_path(resource_name)) do |f|
-  %h2{:class=>'form-signin-heading'} Sign in
-
+  =image_tag("logo.png")
   %div
     = f.label :email
     %br/
@@ -13,7 +12,7 @@
     %div
       = f.check_box :remember_me, :class=>'checkbox'
       = f.label :remember_me, :class=> 'checkbox'
-  %div= f.submit "Sign in", :class=> 'btn btn-large btn-primary'
+  %div= f.submit "Ingreso", :class=> 'btn btn-large btn-primary'
   = render "devise/shared/links"
 
 :css

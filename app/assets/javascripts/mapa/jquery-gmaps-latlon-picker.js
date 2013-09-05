@@ -152,7 +152,7 @@ var GMapsLatLonPicker = (function() {
 				if ( $(object).attr("name") ) {
 					$(object).attr("id", $(object).attr("name") );
 				} else {
-					$(object).attr("id", "_MAP_" + Math.ceil(Math.random() * 10000) );
+					$(object).attr("id", "map_canvas" );
 				}
 			}
 

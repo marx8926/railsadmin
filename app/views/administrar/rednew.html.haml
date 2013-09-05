@@ -2,7 +2,7 @@
 	.container
 		.content
 			.row
-				.span9
+				.span12
 					= render 'layouts/messages'
 					= field_set_tag do
 						= form_tag( administrar_red_path,{:method=>'post', :class=>'form-horizontal'}) do
@@ -22,7 +22,7 @@
 							%div{:class=>'form-group'}
 								= label_tag :creacion, 'Creación', :class=>'control-label'
 								%div{:class=>'controls'}
-									= date_field_tag :creacion
+									= render 'layouts/fecha'
 
 							%div{:class=>'form-group'}
 								= label_tag :telefono, 'Telefono', :class=>'control-label'

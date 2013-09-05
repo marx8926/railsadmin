@@ -93,7 +93,14 @@
               Más
               %b.caret
             %ul.dropdown-menu
-              
+              %li
+                %a{:href => "#", :class=>'light toggle-collapsed'}
+                  Administrar
+                %ul.dropdown-menu.sub-menu
+                  %li
+                    %a{:href => administrar_iglesia_path } Iglesia Modificar
+                  %li
+                    %a{:href => administrar_red_path } Red Crear
               %li
                 %a{:href => "#"}
                   Pedir
@@ -126,14 +133,7 @@
                     %a{:href => "#"} Action
                   %li
                     %a{:href => "#"} Another action
-              %li
-                %a{:href => "#"}
-                  Administrar
-                %ul.dropdown-menu.sub-menu
-                  %li
-                    %a{:href => "#"} Action
-                  %li
-                    %a{:href => "#"} Another action
+              
               
         %ul#main-menu-right.nav.pull-right
           %li

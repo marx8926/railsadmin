@@ -1,5 +1,6 @@
 = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class=>'form-signin' }) do |f|
   = devise_error_messages!
+  =image_tag("logo.png")
   %h2{:class=>'form-signin-heading'} Forgot your password?
 
   %div
@@ -9,6 +10,8 @@
   %div= f.submit "Send me reset password instructions", :class=> 'btn btn-large btn-primary'
   = render "devise/shared/links"
 
+
+     
 :css
   body {
     padding-top: 40px;
