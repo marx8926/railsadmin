@@ -5,24 +5,24 @@
 				.span12
 					= render 'layouts/messages'
 					%h2 Ganar
-					%legend
+					%legend Datos personales
 					= form_tag( administrar_iglesia_path,{:method=>'post',:class=>'form-horizontal'}) do
 						= field_set_tag do
 							.row-fluid
 								.span4								
 									.control-group
-										= label_tag :nombres, 'Nombres: ', :class=>'control-label'
+										= label_tag :nombres, 'Nombres ', :class=>'control-label'
 										.controls
 											= text_field_tag :nombres, '', :class => 'input'
 								
 								.span4
 									.control-group
-										= label_tag :apellidos, 'Apellidos: ', :class=>'control-label'
+										= label_tag :apellidos, 'Apellidos ', :class=>'control-label'
 										.controls
 											= text_field_tag :apellidos, '', :class => 'input'
 								.span4
 									.control-group
-										= label_tag :edad, 'Edad: ', :class=>'control-label'
+										= label_tag :edad, 'Edad ', :class=>'control-label'
 										.controls
 											= number_field_tag :edad,'0',:class=>'input-medium', :min=>0, :max=>120
 								
@@ -61,7 +61,88 @@
 										= label_tag :profesion, 'Profesión', :class=>'control-label'
 										.controls
 											= text_field_tag :profesion,'', :class=>'input-medium'
+						%legend Telefonos
+						= field_set_tag do
+							.row-fluid
+								.span4
+									.control-group
+										= label_tag :casa, 'Casa', :class=>'control-label'							
+										.controls
+											= text_field_tag :casa, '', :class=>'input'
+								.span4
+									.control-group
+										= label_tag :celular, 'Celular', :class=>'control-label'
+										.controls
+											= text_field_tag :celular, '', :class=>'input'
+								.span4
+									.control-group
+										= label_tag :tipo, 'Tipo', :class=>'control-label'
+										.controls
+											= select_tag :tipo, "<option value='M'>Movistar</option><option value='MR'>RPM</option><option value='C'>Claro</option><option value='RC>RPC</option><option value='N'>Nextel</option>".html_safe
+							.row-fluid
+								.span4
+									.control-group
+										= label_tag :oficina, 'Oficina', :class=>'control-label'
+										.controls
+											= text_field_tag :oficina, '', :class=>'input'
+								.span4
+									.control-group
+										= label_tag :celular1, 'Celular', :class=>'control-label'
+										.controls
+											= text_field_tag :celular1, '', :class=>'input'
+								.span4
+									.control-group
+										= label_tag :tipo1, 'Tipo', :class=>'control-label'
+										.controls
+											= select_tag :tipo1, "<option value='M'>Movistar</option><option value='MR'>RPM</option><option value='C'>Claro</option><option value='RC>RPC</option><option value='N'>Nextel</option>".html_safe
 
+						%legend
+						= field_set_tag do
+							.row-fluid
+								.span4
+									.control-group
+										= label_tag :email, 'Email', :class=>'control-label'
+										.controls
+											= text_field_tag :email, '', :class=>'input'
+								.span2
+
+								.span6
+									%i{:class=>'icon-home'}
+									%i{:class=>'icon-home'}
+									%i{:class=>'icon-home'}
+
+						%legend Iglesia
+						= field_set_tag do
+							.row-fluid
+								.span4
+									.control-group
+										= label_tag :estado, 'Estado', :class=>'control-label'
+										.controls
+											= select_tag :estado, "<option value='n'>Nuevo Convertido</option> <option value='c'>Convertido</option>".html_safe
+								.span4
+									.control-group
+										= label_tag :red, 'Red', :class=>'control-label'
+										.controls
+											= select_tag :red
+
+								.span4
+									.control-group
+										= label_tag :lugar, 'Lugar', :class=>'control-label'
+										.controls
+											= select_tag :lugar
+							.row-fluid
+								.span4
+									.control-group
+										= label_tag :visita,'Día visita', :class=>'control-label'
+										.controls
+											= select_tag :visita, "<option value='L'>Lunes</option> <option value='M'>Martes</option><option value='X'>Miercoles</option><option value='J'>Jueves</option><option value='V'>Viernes</option><option value='S'>Sabado</option><option value='D'>Domingo</option>".html_safe
+
+								.span4
+									.control-group
+										= label_tag :hora, 'Hora visita', :class=>'control-label'
+										.controls
+											= text_field_tag :hora, '', :class=>'input'
+						%legend Dirección
 
 						= submit_tag 'Guardar', :class=>'btn'
 
