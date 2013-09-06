@@ -8,7 +8,7 @@ Encoding.default_internal = Encoding::UTF_8
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-gem 'pg'
+gem 'mysql2'
 gem 'rails_12factor', group: :production
 gem 'unicorn'
 
@@ -56,15 +56,17 @@ end
 
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem "bootstrap-timepicker-rails", "~> 0.1.3"
 gem 'bootstrap-sass'
 gem 'haml'
 gem 'haml-rails'
 gem 'RedCloth'
 gem 'devise'
 gem 'devise-encryptable'
-
+gem 'aws-sdk'
+gem 'paperclip'
 group :development, :test do
-  gem 'aws-sdk'
+  
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
   gem 'html2haml'

@@ -33,4 +33,8 @@ RubyRails4Sample::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+   config.paperclip_defaults = {:storage => :s3, :s3_credentials => {:bucket => ENV['adminchurch'],
+    :access_key_id => ENV['AKIAIRWIXW4G3DOH3O3A'], :secret_access_key => ENV['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']
+  }
 end

@@ -1,10 +1,21 @@
-%div{:class => 'form-inline'}
-	= label_tag :departamento,'Departamento', :class=>'control-label'
-	= select_tag :departamento
-	= label_tag :provincia,'Provincia', :class=>'control-label'
-	= select_tag :provincia
-	= label_tag :distrito,'Distrito', :class=>'control-label'
-	= select_tag :distrito
+.row-fluid
+	.span12
+		.row-fluid
+			.span4 
+				.control-group
+					= label_tag :departamento,'Departamento', :class=>'control-label'
+					.controls
+						= select_tag :departamento
+			.span4
+				.control-group
+					= label_tag :provincia,'Provincia', :class=>'control-label'
+					.controls
+						= select_tag :provincia
+			.span4
+				.control-group
+					= label_tag :distrito,'Distrito', :class=>'control-label'
+					.controls
+						= select_tag :distrito
 
 :javascript
 	$(document).ready(function(){

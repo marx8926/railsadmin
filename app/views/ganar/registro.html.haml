@@ -143,8 +143,25 @@
 										.controls
 											= text_field_tag :hora, '', :class=>'input'
 						%legend Dirección
+						= field_set_tag do
+							.row-fluid
+								= render 'layouts/ubigeo'
+							.row-fluid
+								.span4
+									.control-group
+										= label_tag :direccion, 'Dirección', :class=>'control-label'
+										.controls
+											= text_field_tag :direccion, '', :class=>'input-xlarge'
+								.span4
+									.control-group
+										= label_tag :referencia, 'Referencia', :class=>'control-label'
+										.controls
+											= text_field_tag :referencia, '', :class=>'input-xlarge'
+							.row-fluid
+								= render 'layouts/mapa'
 
 						= submit_tag 'Guardar', :class=>'btn'
+
 
 = javascript_include_tag 'util/functiongen'
 :javascript
