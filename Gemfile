@@ -11,7 +11,7 @@ gem 'rails', '4.0.0'
 gem 'mysql2'
 gem 'rails_12factor', group: :production
 gem 'unicorn'
-
+gem "schema_plus", "~> 1.2.0"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

@@ -1,3 +1,3 @@
 class Respuesta < ActiveRecord::Base
-  belongs_to :peticion
+	belongs_to	:peticion
 end

@@ -1,3 +1,3 @@
 class Peticion < ActiveRecord::Base
-	belongs_to	:persona
+	has_many	:respuestas
 end
