@@ -1,42 +1,63 @@
 %body
 	.container
-		.content
-			.row
+		.content-fluid
+			.row-fluid
 				.span12
 					= render 'layouts/messages'
 					= field_set_tag do
-						= form_tag( administrar_iglesia_path,{:method=>'post'}) do
+						= form_tag( administrar_iglesia_path,{:method=>'post',:class=>'form-horizontal'}) do
 							%h2 Iglesia
 							%legend
-							%div{:class=>'form-inline'}
-								= label_tag :creacion, 'Creación', :class=>'control-label'
-								= render 'layouts/fecha'
-								= label_tag :telefono, 'Telefono', :class=>'control-label'
-								= text_field_tag :telefono, '', :class => 'input-large'
+							.row-fluid
+								.span4
+									.control-group
+										= label_tag :creacion, 'Creación', :class=>'control-label' 
+										.controls
+											= render 'layouts/fecha'
+								.span4
+									.control-group
+										= label_tag :telefono, 'Telefono', :class=>'control-label'
+										.controls
+											= text_field_tag :telefono, '', {:class => 'input', :required=>'true' }
+							.row-fluid
+								= render 'layouts/ubigeo'
 
-							= render 'layouts/ubigeo'
-							%div{:class=>'form-inline'}
-								= label_tag :direccion,'Dirección', :class=>'control-label'	
-								= text_field_tag :direccion,'' , :class=>'input-xxlarge'
-							%div{:class=>'form-inline'}
-								= label_tag :referencia,'Referencia', :class=>'control-label'
-								= text_field_tag :referencia,'' , :class=>'input-xxlarge'
-							%div{:class=>'control-group'}
-								=label_tag 'Pastores Ejecutivos'
-								%select{:multiple=>'multiple', :id=>'pe', :size=>6}
-									%option JB
-									%option ESR
-							%div{:class=>'control-group'}
-								=label_tag 'Pastores Asociados'
-								%select{:multiple=>'multiple', :id=>'pa', :size=>6}
-									%option JB
-									%option ESR
+							.row-fluid
+								.span8
+									.control-group
+										= label_tag :direccion,'Dirección', { :class=>'control-label'}
+										.controls
+											= text_field_tag :direccion,'' , {:class=>'input-xxlarge' , :required=>'true'	}
+							.row-fluid
+								.span8
+									.control-group
+										= label_tag :referencia,'Referencia', :class=>'control-label'
+										.controls
+											= text_field_tag :referencia,'' , { :class=>'input-xxlarge' , :required=>'true'	}
 
-							%div{:class=>'control-group'}
-								= label_tag :ubicacion, 'Ubicación', :class=>'control-label'
-								= hidden_field_tag :latitud
-								= hidden_field_tag :longitud
-							= render 'layouts/mapa'
+							.row-fluid
+								.span6
+									.control-group
+										=label_tag 'Pastores Ejecutivos'
+										.controls
+											%select{:multiple=>'multiple', :id=>'pe', :size=>6}
+												%option JB
+												%option ESR
+								.span6
+									.control-group
+										=label_tag 'Pastores Asociados'
+										.controls
+											%select{:multiple=>'multiple', :id=>'pa', :size=>6}
+												%option JB
+												%option ESR
+							%legend
+							.row-fluid
+								.control-group
+									= label_tag :ubicacion, 'Ubicación', :class=>'control-label'
+									= hidden_field_tag :latitud
+									= hidden_field_tag :longitud
+									.controls
+										= render 'layouts/mapa'
 
 							= submit_tag 'Guardar', :class=>'btn'
 
