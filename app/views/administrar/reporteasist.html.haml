@@ -1,0 +1,44 @@
+%body
+	.container
+		.content-fluid
+			.row-fluid
+				.span12
+					= render 'layouts/messages'
+					
+					= field_set_tag do
+						%legend Reporte de culto
+
+						= form_tag( administrar_iglesia_path,{:method=>'post',:class=>'form-horizontal'}) do
+
+							.row-fluid
+
+								.span4
+									.control-group
+										= label_tag :red,'Red', :class=>'control-label'
+										.controls
+											= select_tag :red
+								.span4								
+									.control-group			
+										= label_tag :inicio,'Inicio', :class=>'control-label'
+										.controls
+											= render 'layouts/fecha'
+															
+								.span4
+									.control-group			
+										= label_tag :inicio,'Fin', :class=>'control-label'
+										.controls
+											= render 'layouts/fecha1'
+							.row-fluid
+
+								= submit_tag 'Generar', :class=>'btn btn-primary'
+
+						
+
+							
+
+= javascript_include_tag 'util/functiongen'
+
+:javascript
+	$(document).ready(function(){
+		
+	});

@@ -74,4 +74,12 @@ class AdministrarController < ApplicationController
 	def usuario
 
 	end
+
+	def asistculto
+
+	end
+
+	def reporteasist
+		
+	end
 end

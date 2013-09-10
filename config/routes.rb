@@ -12,6 +12,8 @@ RubyRails4Sample::Application.routes.draw do
   get 'administrar/redmapa' => 'administrar#redmapa'
   get 'administrar/rol' => 'administrar#roles'
   get 'administrar/usuario' => 'administrar#usuario'
+  get 'administrar/asistencia' => 'administrar#asistculto'
+  get 'administrar/reporteas' => 'administrar#reporteasist'
 
   get 'ganar/registro' => 'ganar#registro'
 
