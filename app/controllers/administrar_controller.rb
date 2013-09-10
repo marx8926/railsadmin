@@ -63,4 +63,7 @@ class AdministrarController < ApplicationController
 	def redlista
 
 	end
+	def redmapa
+
+	end
 end

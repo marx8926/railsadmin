@@ -8,10 +8,11 @@ RubyRails4Sample::Application.routes.draw do
   post 'administrar/iglesia' => 'administrar#create'
   get 'administrar/red' => 'administrar#rednew'
   post 'administrar/red' => 'administrar#redsave'
-  get 'administrar/redes'=> 'administrar#redlista'
-
+  get 'administrar/redes' => 'administrar#redlista'
+  get 'administrar/redmapa' => 'administrar#redmapa'
 
   get 'ganar/registro' => 'ganar#registro'
+
   
   root 'home#index'
   # You can have the root of your site routed with "root"

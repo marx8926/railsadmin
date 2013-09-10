@@ -1,0 +1,49 @@
+%body
+	.container
+		.content-fluid
+			.row-fluid
+				.span12
+					= render 'layouts/messages'
+					
+					= field_set_tag do
+						%legend Mapa de redes
+
+						= form_tag( administrar_iglesia_path,{:method=>'post'}) do
+
+							.row-fluid
+
+								.span4
+								
+									= label_tag :departamento,'Departamento', :class=>'control-label'
+									= select_tag :departamento
+								.span4								
+														
+									= label_tag :provincia,'Provincia', :class=>'checkbox'
+									=check_box_tag 'prov'
+															
+									= select_tag :provincia
+								.span4
+									= label_tag :distrito,'Distrito', :class=>'control-label'
+									= check_box_tag 'dist'
+									= select_tag :distrito
+							.row-fluid
+
+								= submit_tag 'Buscar', :class=>'btn btn-primary'
+
+						.row-fluid
+							.control-group
+								= label_tag :ubicacion, 'Ubicación', :class=>'control-label'
+								= hidden_field_tag :latitud
+								= hidden_field_tag :longitud
+								.controls
+									= render 'layouts/mapa'
+
+							
+
+= javascript_include_tag 'util/functiongen'
+
+:javascript
+	$(document).ready(function(){
+		ubigeos = getAjaxObject("https://s3.amazonaws.com/adminchurch/ubi.json");		
+		cargarUbigeo(ubigeos, 'distrito','provincia','departamento');
+	});
