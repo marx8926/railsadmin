@@ -70,4 +70,8 @@ class AdministrarController < ApplicationController
 	def roles
 
 	end
+
+	def usuario
+
+	end
 end
