@@ -10,6 +10,7 @@ RubyRails4Sample::Application.routes.draw do
   post 'administrar/red' => 'administrar#redsave'
   get 'administrar/redes' => 'administrar#redlista'
   get 'administrar/redmapa' => 'administrar#redmapa'
+  get 'administrar/rol' => 'administrar#roles'
 
   get 'ganar/registro' => 'ganar#registro'
 

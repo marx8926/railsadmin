@@ -1,0 +1,37 @@
+%body
+	.container
+		.content-fluid
+			.row-fluid
+				.span12
+					= render 'layouts/messages'
+					
+					= field_set_tag do
+						%legend Roles
+
+						= form_tag( administrar_iglesia_path,{:method=>'post', :class=>'form-horizontal'}) do
+
+							.row-fluid
+								.control-group
+									=label_tag :rol, 'Roles', :class=>'control-label'
+									.controls
+										%select{:multiple=>'multiple', :id=>'pa', :size=>6}
+											%option JB
+											%option ESR
+
+							.row-fluid
+								.control-group
+									= label_tag :nombre, 'Nombre', :class=>'control-label'
+									.controls
+										= text_field_tag :nombre,'' , { :class=>'input' , :required=>'true'	}
+							.row-fluid
+
+								= submit_tag 'Guardar', :class=>'btn btn-primary'
+								= submit_tag 'Eliminar', :class=>'btn btn-danger'
+						.row-fluid
+							%legend Gráfico
+
+
+:javascript
+	$(document).ready(function(){
+		
+	});

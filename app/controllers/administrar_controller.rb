@@ -66,4 +66,8 @@ class AdministrarController < ApplicationController
 	def redmapa
 
 	end
+
+	def roles
+
+	end
 end
