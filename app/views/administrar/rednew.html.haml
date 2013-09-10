@@ -57,7 +57,7 @@
 										= label_tag :referencia,'Referencia', :class=>'control-label'
 										.controls
 											= text_field_tag :referencia,'' , :class=>'input-xxlarge'
-
+							%legend
 							.row-fluid
 								.control-group
 									= label_tag :ubicacion, 'Ubicación', :class=>'control-label'
@@ -66,4 +66,4 @@
 									.controls
 										= render 'layouts/mapa'
 
-							= submit_tag 'Guardar', :class=>'btn'
+							= submit_tag 'Guardar', :class=>'btn btn-primary'

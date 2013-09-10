@@ -8,6 +8,7 @@ RubyRails4Sample::Application.routes.draw do
   post 'administrar/iglesia' => 'administrar#create'
   get 'administrar/red' => 'administrar#rednew'
   post 'administrar/red' => 'administrar#redsave'
+  get 'administrar/redes'=> 'administrar#redlista'
 
 
   get 'ganar/registro' => 'ganar#registro'

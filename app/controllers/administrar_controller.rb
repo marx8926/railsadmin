@@ -59,4 +59,8 @@ class AdministrarController < ApplicationController
 
 		redirect_to administrar_red_path
 	end
+
+	def redlista
+
+	end
 end

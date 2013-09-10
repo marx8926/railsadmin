@@ -1,0 +1,79 @@
+%body
+	.container
+		.content-fluid
+			.row-fluid
+				.span12
+					= render 'layouts/messages'
+					= field_set_tag do
+						= form_tag( administrar_red_path,{:method=>'post', :class=>'form-horizontal'}) do
+							%h2 Redes
+							%legend
+
+							.row-fluid
+								%table#persona.display.table.table-striped.table-bordered{:border => "0", :cellpadding => "0", :cellspacing => "0", :name => "persona"}
+									%thead#lol
+										%tr
+											%th ID
+											%th Nombres
+											%th Apellidos
+											%th{:width => "5%"} Edad
+											%th{:width => "6%"} Red
+											%th{:width => "8%"} Conversión
+											%th Ganado por
+									%tbody
+										%tr
+											%th A
+											%th A
+											%th A
+											%th A
+											%th A
+											%th A
+											%th A
+										%tr
+											%th A
+											%th A
+											%th A
+											%th A
+											%th A
+											%th A
+											%th A
+										%tr
+											%th A
+											%th A
+											%th A
+											%th A
+											%th A
+											%th A
+											%th A
+										%tr
+											%th A
+											%th A
+											%th A
+											%th A
+											%th A
+											%th A
+											%th A
+
+
+= javascript_include_tag 'table/table.js'
+:javascript
+	$(document).ready(function(){
+		$('#persona').dataTable({
+			"sDom": "<'row-fluid'<'span6'T><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+			"sPaginationType": "bootstrap",
+			"bStateSave": true,
+			"bJQueryUI": false,
+			"oLanguage": {
+				"sLengthMenu": "Display _MENU_ records per page",
+				"sZeroRecords": "Nothing found - sorry",	"sInfo": "Showing _START_ to _END_ of _TOTAL_ records",
+				"sInfoEmpty": "Showing 0 to 0 of 0 records",
+				"sInfoFiltered": "(filtered from _MAX_ total records)"
+				},
+			"mRender": function (o) {return '<a href=/Produto/Detalhar/' + o.aData[0] + '>' + 'More' + '</a>';},
+			"oTableTools": { 
+				"aButtons": [  "csv", "xls", "pdf" 
+					
+				]
+			}
+		});
+	});
