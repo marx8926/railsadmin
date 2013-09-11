@@ -91,10 +91,13 @@ ActiveRecord::Schema.define(version: 20130909210804) do
 
   create_table "descartars", force: true do |t|
     t.date     "fecha"
-    t.string   "detalle",    limit: 300
+    t.string   "detalle",       limit: 300
+    t.integer  "convertido_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "descartars", ["convertido_id"], name: "index_descartars_on_convertido_id", using: :btree
 
   create_table "detalle_miembros", force: true do |t|
     t.string   "tipo",         limit: 10
@@ -136,6 +139,7 @@ ActiveRecord::Schema.define(version: 20130909210804) do
 
   create_table "iglesia", force: true do |t|
     t.date     "creacion"
+    t.string   "telefono",   limit: 20
     t.string   "direccion",  limit: 300
     t.string   "referencia", limit: 350
     t.float    "latitud"
@@ -242,21 +246,27 @@ ActiveRecord::Schema.define(version: 20130909210804) do
     t.float    "latitud"
     t.date     "conversion"
     t.integer  "lugar_id"
+    t.integer  "ubigeo_id"
+    t.integer  "iglesia_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "personas", ["dni"], name: "index_personas_on_dni", using: :btree
+  add_index "personas", ["iglesia_id"], name: "index_personas_on_iglesia_id", using: :btree
   add_index "personas", ["lugar_id"], name: "index_personas_on_lugar_id", using: :btree
+  add_index "personas", ["ubigeo_id"], name: "index_personas_on_ubigeo_id", using: :btree
 
   create_table "peticions", force: true do |t|
     t.string   "descripcion", limit: 400
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "persona_id"
     t.integer  "invitado_id"
   end
 
   add_index "peticions", ["invitado_id"], name: "index_peticions_on_invitado_id", using: :btree
+  add_index "peticions", ["persona_id"], name: "index_peticions_on_persona_id", using: :btree
 
   create_table "red_socials", force: true do |t|
     t.string   "url"

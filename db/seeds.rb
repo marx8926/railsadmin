@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require "csv"
+
+CSV.foreach('db/ubi.csv') do |row|
+	Ubigeo.create(:nUbigeo_id => row[0],:cUbigeoDesc => row[1], 
+      :nUbigeoDpt => row[2],
+      :nUbigeoProv => row[3],
+      :nUbigeoDist => row[4],
+      :nUbigeoDep => row[5],
+      :nUbigeoLat => row[6],
+      :nUbigeoLng => row[7])
+end

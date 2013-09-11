@@ -2,6 +2,7 @@ class CreateIglesia < ActiveRecord::Migration
   def change
     create_table :iglesia do |t|
       t.date :creacion
+      t.string :telefono, limit: 20
       t.string :direccion, limit: 300
       t.string :referencia, limit: 350
       t.float :latitud

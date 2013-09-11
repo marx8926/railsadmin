@@ -19,10 +19,12 @@ class AdministrarController < ApplicationController
 		@longitud = params[:longitud]
 		@latitud = params[:latitud]
 
+
+
 		@church = Iglesia.new({:creacion=>@creacion,
 			:telefono=>@telefono,:direccion=>@direccion,
 			:referencia=>@referencia,:latitud=>@latitud,
-			:longitud=>@longitud})
+			:longitud=>@longitud, :ubigeo_id=>@distrito})
 		@n = Iglesia.count
 		if @n == 0
 			@church.save

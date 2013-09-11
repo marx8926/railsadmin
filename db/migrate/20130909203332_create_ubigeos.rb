@@ -12,6 +12,5 @@ class CreateUbigeos < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :nUbigeo_pas, :nUbigeo_id , name: "nubi"
   end
 end
