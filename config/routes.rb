@@ -18,6 +18,7 @@ RubyRails4Sample::Application.routes.draw do
   get 'ganar/registro' => 'ganar#registro'
   get 'ganar/configurar' => 'ganar#configurar'
   get 'ganar/busqueda' => 'ganar#busqueda'
+  get 'ganar/informe' => 'ganar#informe'
 
   
   root 'home#index'

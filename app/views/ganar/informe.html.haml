@@ -1,0 +1,69 @@
+%body
+	.container
+		.content-fluid
+			.row-fluid
+				.span12
+					= render 'layouts/messages'
+					= field_set_tag do
+						
+						
+						%legend Informe
+						.row-fluid
+							.span3.form-inline
+								= label_tag :todos,'Todos', :class=>'checkbox'
+								= check_box_tag 'todos'
+								
+							
+							.span3.form-inline
+								= label_tag :red,'Red', :class=>'checkbox'
+								= check_box_tag 'Red'
+								= select_tag :red
+
+									
+							.span3
+											
+								= label_tag :tipo,'Tipo', :class=>'control-label'
+											
+								= select_tag :tipo, :class=>'input-small'
+							.span3
+
+								= label_tag :lider,'Lider', :class=>'control-label'
+								= select_tag :lider, :class=>'input-small'
+										
+						.row-fluid
+							.span6
+								.form-inline
+									= label_tag :fecha, 'Fechas', :class=>'checkbox'
+									= check_box_tag 'fecha'
+								.row-fluid
+									.span3.offset2
+										= field_set_tag do
+											= label_tag :desde,'Desde', :class=>'control-label'
+
+											= render 'layouts/fecha'
+									.span3.offset2
+										= field_set_tag do
+											= label_tag :hasta, 'Hasta', :class=>'control-label'
+											= render 'layouts/fecha1'
+								
+							.span3
+								= label_tag :edad,'Edad', :class=>'control-label'
+								= select_tag :edad
+
+							.span3
+								= label_tag :sexo,'Sexo', :class=>'control-label'
+								= select_tag :sexo
+
+						.row-fluid
+							.control-group
+								.controls
+									%button{:class=>'btn btn-primary'} Generar
+
+								
+						
+
+= javascript_include_tag 'util/functiongen'
+:javascript
+	$(document).ready(function(){
+
+	});

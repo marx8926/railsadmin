@@ -12,5 +12,8 @@ class GanarController < ApplicationController
 	def busqueda
 
 	end
-	
+
+	def informe
+
+	end
 end
