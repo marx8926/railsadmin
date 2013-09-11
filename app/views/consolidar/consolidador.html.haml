@@ -1,0 +1,37 @@
+%body
+	.container
+		.content-fluid
+			.row-fluid
+				.span12
+					= render 'layouts/messages'
+					= field_set_tag do
+						
+						%h2 Consolidadores
+						%legend 
+						
+						= form_tag( administrar_iglesia_path,{:method=>'post',:class=>'form-horizontal'}) do
+							.row-fluid
+								.span3
+									.control-group
+										= label_tag :red,'Red', :class=>'control-label'
+										.controls
+											= select_tag :red
+								.span3
+									.control-group
+										= label_tag :estado,'Estado', :class=>'control-label'
+										.controls
+											= select_tag :estado
+							.row-fluid
+								.span3
+								.span3.offset1
+									.control-group
+										.controls
+											%button{:class=>'btn btn-primary'} Generar
+								
+						
+
+= javascript_include_tag 'util/functiongen'
+:javascript
+	$(document).ready(function(){
+
+	});

@@ -21,6 +21,8 @@ RubyRails4Sample::Application.routes.draw do
   get 'ganar/informe' => 'ganar#informe'
   get 'ganar/reporte' => 'ganar#reporte'
 
+  get 'consolidar/consolidador' => 'consolidar#consolidador'
+
   
   root 'home#index'
   # You can have the root of your site routed with "root"
