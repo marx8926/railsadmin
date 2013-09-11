@@ -9,4 +9,8 @@ class GanarController < ApplicationController
 
 	end
 
+	def busqueda
+
+	end
+	
 end

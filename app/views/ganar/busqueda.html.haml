@@ -1,0 +1,58 @@
+%body
+	.container
+		.content-fluid
+			.row-fluid
+				.span12
+					= render 'layouts/messages'
+					= field_set_tag do
+						
+						
+						%legend Busqueda
+						.row-fluid
+							.span8.form-horizontal
+								.control-group
+									= label_tag :nombres,'Nombres o Apellidos', :class=>'control-label'
+									.controls
+										= text_field_tag :nombres,'', :class=>'input-xxlarge'
+
+							.span4
+								.control-group
+									.controls
+										%button{:class=>'btn btn-primary'} Click
+
+						.row-fluid
+							
+							.span3.form-inline
+								= label_tag :todos,'Todos', :class=>'checkbox'
+								=check_box_tag 'todos'															
+									
+							.span3
+
+								.form-inline
+									= label_tag :red,'Red', :class=>'checkbox'
+									=check_box_tag 'red'
+								.row-fluid						
+									= select_tag :red_l
+							.span6
+								.form-inline
+									= label_tag :fecha, 'Fechas', :class=>'checkbox'
+									= check_box_tag 'fecha'
+								.row-fluid
+									.span3.offset2
+										= field_set_tag do
+											= label_tag :desde,'Desde', :class=>'control-label'
+
+											= render 'layouts/fecha'
+									.span3.offset2
+										= field_set_tag do
+											= label_tag :hasta, 'Hasta', :class=>'control-label'
+											= render 'layouts/fecha1'
+						%legend
+								
+						
+
+= javascript_include_tag 'util/functiongen'
+:javascript
+	$(document).ready(function(){
+
+	});
