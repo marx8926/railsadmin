@@ -19,6 +19,7 @@ RubyRails4Sample::Application.routes.draw do
   get 'ganar/configurar' => 'ganar#configurar'
   get 'ganar/busqueda' => 'ganar#busqueda'
   get 'ganar/informe' => 'ganar#informe'
+  get 'ganar/reporte' => 'ganar#reporte'
 
   
   root 'home#index'

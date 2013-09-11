@@ -16,4 +16,8 @@ class GanarController < ApplicationController
 	def informe
 
 	end
+
+	def reporte
+
+	end
 end

@@ -1,0 +1,60 @@
+%body
+	.container
+		.content-fluid
+			.row-fluid
+				.span12
+					= render 'layouts/messages'
+					= field_set_tag do
+						
+						%h2 Informe General
+						%legend 
+						.row-fluid
+							.span4.form-horizontal
+								.control-group
+									= label_tag :pastor,'Pastor', :class=>'control-label'
+									.controls
+										= select_tag :pastor
+
+
+							.span8.form-horizontal
+								.span4
+									= field_set_tag do
+										.control-group
+											= label_tag :desde,'Desde', :class=>'control-label'
+											.controls
+												= render 'layouts/fecha'
+								.span4.offset1
+									= field_set_tag do
+										.control-group
+											= label_tag :hasta, 'Hasta', :class=>'control-label'
+											.controls
+												= render 'layouts/fecha1'
+
+						.row-fluid.form-horizontal
+							.span4
+								.control-group
+									= label_tag :edad,'Edad', :class=>'control-label'
+									.controls
+										= select_tag :edad
+							.span4
+								.control-group
+									= label_tag :sexo, 'Sexo', :class=>'control-label'
+									.controls
+										= select_tag :sexo
+
+						.row-fluid
+							.span4
+							.span4
+							.span4.form-horizontal
+								.control-group
+									.controls
+										%button{:class=>'btn btn-primary'} Generar
+
+								
+						
+
+= javascript_include_tag 'util/functiongen'
+:javascript
+	$(document).ready(function(){
+
+	});

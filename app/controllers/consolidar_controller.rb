@@ -1,0 +1,2 @@
+class ConsolidarController < ApplicationController
+end
