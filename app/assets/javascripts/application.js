@@ -16,6 +16,8 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+//= require bootstrap-editable
+//= require bootstrap-editable-rails
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.es
 //= require dataTables/jquery.dataTables

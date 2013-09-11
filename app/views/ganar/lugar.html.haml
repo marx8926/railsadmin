@@ -1,0 +1,48 @@
+%body
+	.container
+		.content-fluid
+			.row-fluid
+				.span12
+					= render 'layouts/messages'
+					= field_set_tag do
+						
+						%h2 Iglesia
+						%legend
+						.row-fluid
+							.span6
+
+								.row-fluid
+									%table#lugar.display.table.table-striped.table-bordered{:border => "0", :cellpadding => "0", :cellspacing => "0", :name => "lugar"}
+										%thead
+											%tr
+												%th Lugar
+										%tbody
+											%tr 
+												%td Culto
+											%tr 
+												%td Evangelismo
+											%tr 
+												%td 220
+
+							.span6
+
+								= form_tag( administrar_iglesia_path,{:method=>'post',:class=>'form-horizontal'}) do
+									.row-fluid
+										.control-group
+											= label_tag :nombre, 'Nombre', :class=>'control-label'
+											.controls
+												= text_field_tag :nombre,'',:class=>'input'
+									
+										.control-group
+											.controls
+												= submit_tag 'Guardar', :class=>'btn btn-primary'
+
+							
+								
+						
+
+= javascript_include_tag 'util/functiongen'
+:javascript
+	$(document).ready(function(){
+
+	});
