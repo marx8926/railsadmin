@@ -5,7 +5,7 @@ class GanarController < ApplicationController
 
 	end
 
-	def lugar
+	def configurar
 
 	end
 

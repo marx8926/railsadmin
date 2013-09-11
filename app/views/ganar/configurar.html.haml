@@ -1,0 +1,160 @@
+%body
+	.container
+		.content-fluid
+			.row-fluid
+				.span12
+					= render 'layouts/messages'
+
+					.row-fluid
+						.span6
+							= field_set_tag do						
+								%h2 Lugar
+								%legend
+								.row-fluid
+									.span3
+
+										.row-fluid
+											%table#lugar.display.table.table-striped.table-bordered{:border => "0", :cellpadding => "0", :cellspacing => "0", :name => "lugar"}
+												%thead
+													%tr
+														%th Lugar
+													
+												%tbody
+													%tr 
+														%td
+															%a#username.editable.editable-click.editable-open{"data-original-title" => "Enter username", "data-pk" => "1", "data-type" => "text", :href => "#"} superuser
+													%tr 
+														%td Evangelismo
+													%tr 
+														%td 220
+
+									.span3
+
+										= form_tag( administrar_iglesia_path,{:method=>'post',:class=>'form-horizontal'}) do
+											.row-fluid
+												.control-group
+													= label_tag :nombre, 'Nombre', :class=>'control-label'
+													.controls
+														= text_field_tag :nombre,'',:class=>'input'
+									
+												.control-group
+													.controls
+														= submit_tag 'Guardar', :class=>'btn btn-primary'
+
+						.span6
+							= field_set_tag do
+						
+								%h2 Estado Civil
+								%legend
+								.row-fluid
+									.span3
+
+										.row-fluid
+											%table#lugar.display.table.table-striped.table-bordered{:border => "0", :cellpadding => "0", :cellspacing => "0", :name => "lugar"}
+												%thead
+													%tr
+														%th Lugar
+													
+												%tbody
+													%tr 
+														%td
+															%a#username.editable.editable-click.editable-open{"data-original-title" => "Enter username", "data-pk" => "1", "data-type" => "text", :href => "#"} Soltero
+													%tr 
+														%td Casado
+													%tr 
+														%td Divorciado
+
+									.span3
+
+										= form_tag( administrar_iglesia_path,{:method=>'post',:class=>'form-horizontal'}) do
+											.row-fluid
+												.control-group
+													= label_tag :nombre, 'Nombre', :class=>'control-label'
+													.controls
+														= text_field_tag :nombre,'',:class=>'input'
+									
+												.control-group
+													.controls
+														= submit_tag 'Guardar', :class=>'btn btn-primary'
+					.row-fluid
+						= field_set_tag do
+						
+							%h2 Edades
+							%legend
+							.row-fluid
+								.span6
+
+									.row-fluid
+										%table#lugar.display.table.table-striped.table-bordered{:border => "0", :cellpadding => "0", :cellspacing => "0", :name => "lugar"}
+											%thead
+												%tr
+													%th Regla
+													%th Rango
+													%th ES
+													%th ES
+												
+											%tbody
+												%tr 
+													%td
+														%a#username.editable.editable-click.editable-open{"data-original-title" => "Enter username", "data-pk" => "1", "data-type" => "text", :href => "#"} Niño
+													%td A
+													%td A
+													%td A
+												%tr 
+													%td Jovén
+													%td A
+													%td A
+													%td A
+												%tr 
+													%td Divorciado
+													%td A
+													%td A
+													%td A
+
+
+								.span6
+
+									= form_tag( administrar_iglesia_path,{:method=>'post',:class=>'form-horizontal'}) do
+										.row-fluid
+											.control-group
+												= label_tag :regla, 'Regla', :class=>'control-label'
+												.controls
+													= text_field_tag :regla,'',:class=>'input'
+
+											.control-group
+												= label_tag :estadocivil, 'Estado Civil (*)', :class=>'control-label'
+												.controls
+													= select_tag :estadocivil
+
+											.control-group
+												= label_tag :estadocivil1, 'Estado Civil', :class=>'control-label'
+												.controls
+													= select_tag :estadocivil1
+										.row-fluid
+											.span6
+												.control-group
+													= label_tag :desde,'Desde', :class=>'control-label'
+													.controls
+														= number_field_tag :desde, '0', :in => 0...150
+												.control-group
+													= label_tag :hasta,'Hasta', :class=>'control-label'
+													.controls
+														= number_field_tag :hasta, '0', :in => 0...150
+												
+										.row-fluid
+											.span6
+									
+											.control-group
+												.controls
+													= submit_tag 'Guardar', :class=>'btn btn-primary'
+
+
+							
+								
+						
+
+= javascript_include_tag 'util/functiongen'
+:javascript
+	$(document).ready(function(){
+
+	});

@@ -16,7 +16,7 @@ RubyRails4Sample::Application.routes.draw do
   get 'administrar/reporteas' => 'administrar#reporteasist'
 
   get 'ganar/registro' => 'ganar#registro'
-  get 'ganar/lugar' => 'ganar#lugar'
+  get 'ganar/configurar' => 'ganar#configurar'
 
   
   root 'home#index'
