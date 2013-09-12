@@ -18,7 +18,7 @@
 									.control-group
 										= label_tag :telefono, 'Telefono', :class=>'control-label'
 										.controls
-											= text_field_tag :telefono, '', {:class => 'input', :required=>'true' }
+											= text_field_tag :telefono, @church.nil? ?  '': church.telefono , {:class => 'input', :required=>'true' }
 							.row-fluid
 								= render 'layouts/ubigeo'
 
@@ -27,13 +27,13 @@
 									.control-group
 										= label_tag :direccion,'Dirección', { :class=>'control-label'}
 										.controls
-											= text_field_tag :direccion,'' , {:class=>'input-xxlarge' , :required=>'true'	}
+											= text_field_tag :direccion, '' , {:class=>'input-xxlarge' , :required=>'true'	}
 							.row-fluid
 								.span8
 									.control-group
 										= label_tag :referencia,'Referencia', :class=>'control-label'
 										.controls
-											= text_field_tag :referencia,'' , { :class=>'input-xxlarge' , :required=>'true'	}
+											= text_field_tag :referencia, '' , { :class=>'input-xxlarge' , :required=>'true'	}
 
 							.row-fluid
 								.span6
@@ -57,8 +57,14 @@
 									= hidden_field_tag :latitud
 									= hidden_field_tag :longitud
 									.controls
-										= render 'layouts/mapa'
+										- if @church != nil
+											= render 'layouts/mapa', lat: @church.latitud, lng: @church.longitud
 
+										- else
+											= render 'layouts/mapa', lat: '-8.112489', lng:'-79.0288469'
+
+										
+										
 							= submit_tag 'Guardar', :class=>'btn btn-primary'
 
 = javascript_include_tag 'util/functiongen'

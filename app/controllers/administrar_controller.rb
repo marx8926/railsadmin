@@ -6,7 +6,13 @@ class AdministrarController < ApplicationController
 	end
 
 	def iglesia
-		
+		@n = Iglesia.count
+
+		if @n >0
+			@church = Iglesia.first
+			flash[:success] = @church.creacion
+			
+		end
 
 	end
 
@@ -21,19 +27,26 @@ class AdministrarController < ApplicationController
 
 
 
-		@church = Iglesia.new({:creacion=>@creacion,
-			:telefono=>@telefono,:direccion=>@direccion,
-			:referencia=>@referencia,:latitud=>@latitud,
-			:longitud=>@longitud, :ubigeo_id=>@distrito})
+		
 		@n = Iglesia.count
 		if @n == 0
+
+			@dist = Ubigeo.where(nUbigeo_id: @distrito).take
+			@church = Iglesia.new({:creacion=>@creacion,
+			:telefono=>@telefono,:direccion=>@direccion,
+			:referencia=>@referencia,:latitud=>@latitud,
+			:longitud=>@longitud, :ubigeo_id=>@dist})
+
 			@church.save
-			flash[:success] = "Registro con exito"	
+			flash[:success] = @dist.nUbigeo_id	
 		else
-			flash[:error] = "Error en registro"
+			
+
+			@church = Iglesia.first
+			flash[:success] = @church.creacion
 		end
 
-		redirect_to administrar_iglesia_path
+		redirect_to administrar_iglesia_path(@church)
 	end
 
 	def rednew
