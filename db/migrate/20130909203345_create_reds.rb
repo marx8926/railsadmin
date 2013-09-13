@@ -13,5 +13,7 @@ class CreateReds < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :reds, :code, :unique=>true, :name=>'red_index'
   end
 end

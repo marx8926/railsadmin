@@ -63,6 +63,7 @@ class AdministrarController < ApplicationController
 	end
 
 	def redsave
+
 		@red = params[:red]
 		@tipo = params[:tipo]
 		@creacion = params[:creacion]
@@ -71,15 +72,45 @@ class AdministrarController < ApplicationController
 		@referencia= params[:referencia]
 		@longitud = params[:longitud]
 		@latitud = params[:latitud]
+		@distrito = params[:distrito]
 
-		@network = Red.new({:code=>@red,:tipo=>@tipo, :direccion=>@direccion,
-			:referencia=>@referencia,:latitud=>@latitud,
-			:longitud=>@longitud, :telefono=>@tel})
-		if @network.save
-			flash[:success] = "Registro con exito"
+		@church = Iglesia.first
+
+		if @church == nil
+			flash[:error] = "Registre los datos de la iglesia"
+
+			@network = nil
 		else
-			flash[:error] = "Error en registro"
+
+			@network = Red.find_or_create_by(code: @red ) do |c|
+
+				c.code = @red
+				c.tipo = @tipo
+				c.direccion = @direccion
+				c.referencia = @referencia
+				c.latitud = @latitud
+				c.longitud = @longitud
+				c.activo = true
+				c.creacion = @creacion
+				c.iglesia_id = @church.id
+				c.ubigeo_id = @distrito
+
+			end
+
+			if @network.save
+				flash[:success] = "Registro con exito"
+			else
+				flash[:error] = "Error en registro"
+			end
+
 		end
+
+		
+
+		# Red.new({:code=>@red,:tipo=>@tipo, :direccion=>@direccion,
+		#	:referencia=>@referencia,:latitud=>@latitud,
+		#	:longitud=>@longitud, :telefono=>@tel})
+		
 
 		redirect_to administrar_red_path(@network)
 	end

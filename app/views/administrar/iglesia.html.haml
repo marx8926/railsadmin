@@ -33,7 +33,7 @@
 									.control-group
 										= label_tag :referencia,'Referencia', :class=>'control-label'
 										.controls
-											= text_field_tag :referencia, @church.nil? ? '' : @church.referencia , { :class=>'input-xxlarge' , :required=>'true'	}
+											= text_field_tag :referencia, @church.nil? ? '' : @church.referencia , { :class=>'input-xxlarge'}
 
 							.row-fluid
 								.span6
@@ -54,8 +54,7 @@
 							.row-fluid
 								.control-group
 									= label_tag :ubicacion, 'Ubicación', :class=>'control-label'
-									= hidden_field_tag :latitud
-									= hidden_field_tag :longitud
+
 									.controls
 										- if @church != nil
 											= render 'layouts/mapa', lat: @church.latitud, lng: @church.longitud

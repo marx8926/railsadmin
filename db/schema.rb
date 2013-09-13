@@ -296,6 +296,7 @@ ActiveRecord::Schema.define(version: 20130909210804) do
     t.integer  "ubigeo_id"
   end
 
+  add_index "reds", ["code"], name: "red_index", unique: true, using: :btree
   add_index "reds", ["iglesia_id"], name: "index_reds_on_iglesia_id", using: :btree
   add_index "reds", ["ubigeo_id"], name: "index_reds_on_ubigeo_id", using: :btree
 
