@@ -35,15 +35,15 @@ class AdministrarController < ApplicationController
 			@church = Iglesia.new({:creacion=>@creacion,
 			:telefono=>@telefono,:direccion=>@direccion,
 			:referencia=>@referencia,:latitud=>@latitud,
-			:longitud=>@longitud, :ubigeo_id=>@dist})
+			:longitud=>@longitud, :ubigeo_id=>@distrito})
 
 			@church.save
-			flash[:success] = @dist.nUbigeo_id	
+			flash[:success] = 'Registro con exito'	
 		else
 			
 
 			@church = Iglesia.first
-			flash[:success] = @church.creacion
+			flash[:success] = ''
 		end
 
 		redirect_to administrar_iglesia_path(@church)

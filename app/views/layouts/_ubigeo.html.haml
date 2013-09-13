@@ -17,8 +17,31 @@
 					.controls
 						= select_tag :distrito
 
+
+
+	= hidden_field_tag :ubi, dist 
+	-if dist.size > 0
+		- @dist = Ubigeo.where(id: dist).take
+		- @prov = Ubigeo.where(id: @dist.nUbigeoDep).take
+		- @dep  = Ubigeo.where(id: @prov.nUbigeoDep).take	
+
+		= hidden_field_tag :dist, @dist.id
+		= hidden_field_tag :prov, @prov.id
+		= hidden_field_tag :dep, @dep.id
+
+
 :javascript
 	$(document).ready(function(){
 		ubigeos = getAjaxObject("https://s3.amazonaws.com/adminchurch/ubi.json");		
-		cargarUbigeo(ubigeos, 'distrito','provincia','departamento');
+		
+
+		distrito = $('#ubi').val();
+
+		if(distrito.length>0)
+		{
+			cargarUbigeo(ubigeos, 'distrito','provincia','departamento',$('#dist').val(), $('#prov').val(), $('#dep').val() );
+		}
+		else
+			cargarUbigeo(ubigeos, 'distrito','provincia','departamento');
+
 	});
