@@ -31,7 +31,6 @@ class AdministrarController < ApplicationController
 		@n = Iglesia.count
 		if @n == 0
 
-			@dist = Ubigeo.where(nUbigeo_id: @distrito).take
 			@church = Iglesia.new({:creacion=>@creacion,
 			:telefono=>@telefono,:direccion=>@direccion,
 			:referencia=>@referencia,:latitud=>@latitud,
@@ -43,6 +42,16 @@ class AdministrarController < ApplicationController
 			
 
 			@church = Iglesia.first
+			@church.creacion = @creacion
+			@church.telefono = @telefono
+			@church.direccion = @direccion
+			@church.referencia = @referencia
+			@church.latitud = @latitud
+			@church.longitud = @longitud
+			@church.ubigeo_id = @distrito
+
+			@church.save
+
 			flash[:success] = ''
 		end
 
@@ -72,7 +81,7 @@ class AdministrarController < ApplicationController
 			flash[:error] = "Error en registro"
 		end
 
-		redirect_to administrar_red_path
+		redirect_to administrar_red_path(@network)
 	end
 
 	def redlista

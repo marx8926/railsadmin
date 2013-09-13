@@ -9,6 +9,7 @@ class CreateReds < ActiveRecord::Migration
       t.float :longitud
       t.boolean :activo
       t.date :fin
+      t.date :creacion
 
       t.timestamps
     end

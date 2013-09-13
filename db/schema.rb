@@ -289,6 +289,7 @@ ActiveRecord::Schema.define(version: 20130909210804) do
     t.float    "longitud"
     t.boolean  "activo"
     t.date     "fin"
+    t.date     "creacion"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "iglesia_id"
