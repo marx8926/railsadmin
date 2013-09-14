@@ -20,6 +20,9 @@ RubyRails4Sample::Application.routes.draw do
   get 'ganar/busqueda' => 'ganar#busqueda'
   get 'ganar/informe' => 'ganar#informe'
   get 'ganar/reporte' => 'ganar#reporte'
+  post 'ganar/lugar' => 'ganar#lugar_create'
+  post 'ganar/escivil' => 'ganar#es_create'
+  post 'ganar/regla' => 'ganar#regla_create'
 
   get 'consolidar/consolidador' => 'consolidar#consolidador'
 

@@ -111,12 +111,9 @@ ActiveRecord::Schema.define(version: 20130909210804) do
 
   create_table "estado_civils", force: true do |t|
     t.string   "nombre",     limit: 80
-    t.integer  "regla_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "estado_civils", ["regla_id"], name: "index_estado_civils_on_regla_id", using: :btree
 
   create_table "herramienta", force: true do |t|
     t.string   "nombre",     limit: 100
@@ -182,8 +179,7 @@ ActiveRecord::Schema.define(version: 20130909210804) do
   end
 
   create_table "lugars", force: true do |t|
-    t.string   "nombre",      limit: 40
-    t.string   "descripcion"
+    t.string   "nombre",     limit: 40
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -301,12 +297,15 @@ ActiveRecord::Schema.define(version: 20130909210804) do
   add_index "reds", ["ubigeo_id"], name: "index_reds_on_ubigeo_id", using: :btree
 
   create_table "reglas", force: true do |t|
-    t.string   "regla",      limit: 200
+    t.string   "regla",           limit: 200
     t.integer  "desde"
     t.integer  "hasta"
+    t.integer  "estado_civil_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "reglas", ["estado_civil_id"], name: "index_reglas_on_estado_civil_id", using: :btree
 
   create_table "respuesta", force: true do |t|
     t.integer  "estado"

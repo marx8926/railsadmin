@@ -1,3 +1,3 @@
 class Regla < ActiveRecord::Base
-	has_many	:estado_civil
+	belongs_to	:estado_civil
 end

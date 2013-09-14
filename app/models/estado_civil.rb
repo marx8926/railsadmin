@@ -1,3 +1,3 @@
 class EstadoCivil < ActiveRecord::Base
-  belongs_to :regla
+  has_many :regla
 end
