@@ -225,15 +225,15 @@ ActiveRecord::Schema.define(version: 20130909210804) do
   end
 
   create_table "personas", force: true do |t|
-    t.string   "nombres",    limit: 100
-    t.string   "apellidos",  limit: 100
+    t.string   "nombres",         limit: 100
+    t.string   "apellidos",       limit: 100
     t.integer  "edad"
     t.date     "nacimiento"
-    t.string   "dni",        limit: 12
-    t.string   "ocupacion",  limit: 30
-    t.string   "profesion",  limit: 30
-    t.string   "estado",     limit: 5
-    t.string   "dia",        limit: 15
+    t.string   "dni",             limit: 12
+    t.string   "ocupacion",       limit: 30
+    t.string   "profesion",       limit: 30
+    t.string   "estado",          limit: 5
+    t.string   "dia",             limit: 15
     t.datetime "hora"
     t.string   "invitado"
     t.string   "direccion"
@@ -244,13 +244,17 @@ ActiveRecord::Schema.define(version: 20130909210804) do
     t.integer  "lugar_id"
     t.integer  "ubigeo_id"
     t.integer  "iglesia_id"
+    t.integer  "estado_civil_id"
+    t.integer  "red_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "personas", ["dni"], name: "index_personas_on_dni", using: :btree
+  add_index "personas", ["estado_civil_id"], name: "index_personas_on_estado_civil_id", using: :btree
   add_index "personas", ["iglesia_id"], name: "index_personas_on_iglesia_id", using: :btree
   add_index "personas", ["lugar_id"], name: "index_personas_on_lugar_id", using: :btree
+  add_index "personas", ["red_id"], name: "index_personas_on_red_id", using: :btree
   add_index "personas", ["ubigeo_id"], name: "index_personas_on_ubigeo_id", using: :btree
 
   create_table "peticions", force: true do |t|

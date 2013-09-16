@@ -6,7 +6,7 @@
 					= render 'layouts/messages'
 					%h2 Ganar
 					%legend Datos personales
-					= form_tag( administrar_iglesia_path,{:method=>'post',:class=>'form-horizontal'}) do
+					= form_tag( ganar_registro_save_path,{:method=>'post',:class=>'form-horizontal'}) do
 						= field_set_tag do
 							.row-fluid
 								.span4								
@@ -31,7 +31,7 @@
 									.control-group
 										= label_tag :ecivil, 'Estado Civil',:class=>'control-label'
 										.controls
-											= select_tag :ecivil, "<option value='1'>Solter@</option><option value='2'>Casad@</option><option value='3'>Viud@</option><option value='4'>Divorciad@</option><option value='5'>Conviviente</option>".html_safe
+											= estado_civil_for_select()
 								
 								.span4
 									.control-group
@@ -43,7 +43,7 @@
 									.control-group
 										= label_tag :creacion, 'F. Nacimiento', :class=>'control-label'
 										.controls
-											= render 'layouts/fecha'
+											= render 'layouts/fecha',  eti: ( @person.nil? ? nil : @person.creacion.strftime("%d/%m/%Y"))
 							.row-fluid
 								.span4
 									.control-group
@@ -94,7 +94,7 @@
 									.control-group
 										= label_tag :tipo1, 'Tipo', :class=>'control-label'
 										.controls
-											= select_tag :tipo1, "<option value='M'>Movistar</option><option value='MR'>RPM</option><option value='C'>Claro</option><option value='RC>RPC</option><option value='N'>Nextel</option>".html_safe
+											= select_tag :tipo1, "<option value='M'>Movistar</option><option value='MR'>RPM</option><option value='C'>Claro</option><option value='RC'>RPC</option><option value='N'>Nextel</option>".html_safe
 
 						%legend
 						= field_set_tag do
@@ -118,18 +118,18 @@
 									.control-group
 										= label_tag :estado, 'Estado', :class=>'control-label'
 										.controls
-											= select_tag :estado, "<option value='n'>Nuevo Convertido</option> <option value='c'>Convertido</option>".html_safe
+											= select_tag :estado, "<option value='N'>Nuevo Convertido</option> <option value='C'>Convertido</option>".html_safe
 								.span4
 									.control-group
 										= label_tag :red, 'Red', :class=>'control-label'
 										.controls
-											= select_tag :red
+											= red_for_select()
 
 								.span4
 									.control-group
 										= label_tag :lugar, 'Lugar', :class=>'control-label'
 										.controls
-											= select_tag :lugar
+											= lugar_for_select()
 							.row-fluid
 								.span4
 									.control-group
@@ -141,11 +141,29 @@
 									.control-group
 										= label_tag :hora, 'Hora visita', :class=>'control-label'
 										.controls
-											= text_field_tag :hora, '', :class=>'input'
+											= time_field_tag :hora, '00:00:00', :class=>'input'
+								.span4
+									.control-group
+										= label_tag :convertido,'Fecha Conversión', :class=>'control-label'
+										.controls
+											= render 'layouts/fecha1',  eti: ( @person.nil? ? nil : @person.creacion.strftime("%d/%m/%Y"))
+							.row-fluid
+								.control-group
+									= label_tag :invitado,'Invitado por', :class=>'control-label'
+									.controls
+										= text_field_tag :invitado,'', :class=>'input-xxlarge'
+
+							.row-fluid
+								.control-group
+									= label_tag :oracion, 'Petición', :class=>'control-label'
+									.controls
+										= text_field_tag :oracion, '', :class=>'input-xxlarge'
+
+
 						%legend Dirección
 						= field_set_tag do
 							.row-fluid
-								= render 'layouts/ubigeo'
+								= render 'layouts/ubigeo', dist: (@person.nil? ? '': @person.ubigeo_id)
 							.row-fluid
 								.span4
 									.control-group
@@ -158,7 +176,11 @@
 										.controls
 											= text_field_tag :referencia, '', :class=>'input-xlarge'
 							.row-fluid
-								= render 'layouts/mapa'
+								- if @person != nil
+									= render 'layouts/mapa', lat: @person.latitud, lng: @person.longitud
+
+								- else
+									= render 'layouts/mapa', lat: '-8.112489', lng:'-79.0288469'
 
 						= submit_tag 'Guardar', :class=>'btn btn-primary'
 
@@ -166,5 +188,5 @@
 = javascript_include_tag 'util/functiongen'
 :javascript
 	$(document).ready(function(){
-		console.log(fechaAhora());
+
 	});

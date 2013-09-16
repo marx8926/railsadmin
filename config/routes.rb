@@ -16,13 +16,18 @@ RubyRails4Sample::Application.routes.draw do
   get 'administrar/reporteas' => 'administrar#reporteasist'
 
   get 'ganar/registro' => 'ganar#registro'
+  post 'ganar/registro_save' => 'ganar#registro_create'
   get 'ganar/configurar' => 'ganar#configurar'
-  get 'ganar/busqueda' => 'ganar#busqueda'
-  get 'ganar/informe' => 'ganar#informe'
-  get 'ganar/reporte' => 'ganar#reporte'
   post 'ganar/lugar' => 'ganar#lugar_create'
   post 'ganar/escivil' => 'ganar#es_create'
   post 'ganar/regla' => 'ganar#regla_create'
+
+  get 'ganar/busqueda' => 'ganar#busqueda'
+  post 'ganar/search' => 'ganar#search'
+  
+  get 'ganar/informe' => 'ganar#informe'
+  get 'ganar/reporte' => 'ganar#reporte'
+
 
   get 'consolidar/consolidador' => 'consolidar#consolidador'
 

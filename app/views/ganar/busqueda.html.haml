@@ -5,49 +5,49 @@
 				.span12
 					= render 'layouts/messages'
 					= field_set_tag do
+						= form_tag( ganar_search_path,{:method=>'post',:class=>'form-horizontal'}) do
 						
-						
-						%legend Busqueda
-						.row-fluid
-							.span8.form-horizontal
-								.control-group
-									= label_tag :nombres,'Nombres o Apellidos', :class=>'control-label'
-									.controls
-										= text_field_tag :nombres,'', :class=>'input-xxlarge'
+							%legend Busqueda
+							.row-fluid
+								.span8.form-horizontal
+									.control-group
+										= label_tag :nombres,'Nombres o Apellidos', :class=>'control-label'
+										.controls
+											= text_field_tag :nombres,'', :class=>'input-xxlarge'
 
-							.span4
-								.control-group
-									.controls
-										%button{:class=>'btn btn-primary'} Click
+								.span4
+									.control-group
+										.controls
+											%button{:class=>'btn btn-primary'} Click
 
-						.row-fluid
+							.row-fluid
 							
-							.span3.form-inline
-								= label_tag :todos,'Todos', :class=>'checkbox'
-								=check_box_tag 'todos'															
+								.span3.form-inline
+									= label_tag :todos,'Todos', :class=>'checkbox'
+									=check_box_tag 'todos'															
 									
-							.span3
+								.span3
 
-								.form-inline
-									= label_tag :red,'Red', :class=>'checkbox'
-									=check_box_tag 'red'
-								.row-fluid						
-									= select_tag :red_l
-							.span6
-								.form-inline
-									= label_tag :fecha, 'Fechas', :class=>'checkbox'
-									= check_box_tag 'fecha'
-								.row-fluid
-									.span3.offset2
-										= field_set_tag do
-											= label_tag :desde,'Desde', :class=>'control-label'
+									.form-inline
+										= label_tag :red,'Red', :class=>'checkbox'
+										=check_box_tag 'red'
+									.row-fluid#networks				
+										= red_for_select()
+								.span6
+									.form-inline
+										= label_tag :fecha, 'Fechas', :class=>'checkbox'
+										= check_box_tag 'fecha'
+									.row-fluid#rango
+										.span3.offset2
+											= field_set_tag do
+												= label_tag :desde,'Desde', :class=>'control-label'
 
-											= render 'layouts/fecha'
-									.span3.offset2
-										= field_set_tag do
-											= label_tag :hasta, 'Hasta', :class=>'control-label'
-											= render 'layouts/fecha1'
-						%legend
+												= render 'layouts/fecha', eti: ( @person.nil? ? nil : @person.creacion.strftime("%d/%m/%Y"))
+										.span3.offset2
+											= field_set_tag do
+												= label_tag :hasta, 'Hasta', :class=>'control-label'
+												= render 'layouts/fecha1', eti: ( @person.nil? ? nil : @person.creacion.strftime("%d/%m/%Y"))
+							%legend
 								
 						
 
@@ -55,4 +55,10 @@
 :javascript
 	$(document).ready(function(){
 
+		$('#rango').css({'display':'none'});
+		$('#networks').css({'display':'none'});
+
+		$('#fecha').change(function(){
+			console.log('fecha');
+		});
 	});

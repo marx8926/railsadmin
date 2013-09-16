@@ -6,4 +6,6 @@ class Persona < ActiveRecord::Base
   has_one	:convertido
   belongs_to :ubigeo
   belongs_to	:iglesia
+  belongs_to	:estado_civil
+  belongs_to	:red
 end

@@ -8,12 +8,15 @@ class AdministrarController < ApplicationController
 	def iglesia
 		@n = Iglesia.count
 
+		@church = Iglesia.first
+
 		if @n >0
-			@church = Iglesia.first
+			
 			flash[:success] = @church.creacion
 			
 		end
 
+		return @church
 	end
 
 	def create

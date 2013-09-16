@@ -1,10 +1,21 @@
-= text_field_tag 'fin','', :class=>'datepicker input-medium'
+-if eti == nil
 
-:javascript
-	$('.datepicker').datepicker({
-	"format": "dd/mm/yyyy",
-	"weekStart": 1,
-	"autoclose": true,
-	"language": "es"});
+	= text_field_tag 'fin','', :class=>'datepicker input-medium'
 
-	$('#fin').val(fechaAhora());
+	:javascript
+		$('.datepicker').datepicker({
+		"format": "dd/mm/yyyy",
+		"weekStart": 1,
+		"autoclose": true,
+		"language": "es"});
+
+		$('#fin').val(fechaAhora());
+- else
+	= text_field_tag 'fin',eti, :class=>'datepicker input-medium'
+
+	:javascript
+		$('.datepicker').datepicker({
+		"format": "dd/mm/yyyy",
+		"weekStart": 1,
+		"autoclose": true,
+		"language": "es"});

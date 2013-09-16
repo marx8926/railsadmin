@@ -20,7 +20,7 @@
 										.controls
 											= text_field_tag :telefono, @church.nil? ?  '': @church.telefono , {:class => 'input', :required=>'true' }
 							.row-fluid
-								= render 'layouts/ubigeo', dist: (@church.nil? ? '': @church.ubigeo_id)
+								= render 'layouts/ubigeo', dist: (@church.nil? ? '' : @church.ubigeo_id)
 
 							.row-fluid
 								.span8

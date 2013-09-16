@@ -20,6 +20,8 @@ class CreatePersonas < ActiveRecord::Migration
       t.references :lugar, index: true
       t.references :ubigeo, index: true
       t.references :iglesia, index: true
+      t.references :estado_civil, index: true
+      t.references :red, index: true
 
       t.timestamps
     end
