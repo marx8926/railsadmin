@@ -18,15 +18,15 @@
 								.span4
 									.control-group
 										.controls
-											%button{:class=>'btn btn-primary'} Click
+											= submit_tag 'Buscar', :class=>'btn btn-primary'
 
 							.row-fluid
 							
-								.span3.form-inline
+								.span3.form-inline#all
 									= label_tag :todos,'Todos', :class=>'checkbox'
-									=check_box_tag 'todos'															
+									= check_box_tag 'todos'															
 									
-								.span3
+								.span3#network_all
 
 									.form-inline
 										= label_tag :red,'Red', :class=>'checkbox'
@@ -59,6 +59,33 @@
 		$('#networks').css({'display':'none'});
 
 		$('#fecha').change(function(){
-			console.log('fecha');
+			if($(this).is(':checked'))
+				$('#rango').css({'display':'block'});
+			else $('#rango').css({'display':'none'});
+		});
+
+		$('#red').change(function(){
+			if($(this).is(':checked'))
+			{
+				$('#networks').css({'display':'block'});
+				$('#all').css({'display':'none'});
+				$('#todos').prop("checked",false);
+			}
+			else {
+				$('#networks').css({'display':'none'});
+				$('#all').css({'display':'block'});
+			}
+		});
+
+		$('#todos').change(function(){
+			if($(this).is(':checked'))
+			{
+				$('#network_all').css({'display':'none'});
+				$('#red').prop("checked",false);
+			}
+			else
+			{
+				$('#network_all').css({'display':'block'});
+			}
 		});
 	});
