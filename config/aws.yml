@@ -1,13 +1,13 @@
 # Just like the config/database.yml this file requires an entry for each environment
   # http://aws.amazon.com/security-credentials
   development:
-    access_key_id: AKIAIRWIXW4G3DOH3O3A
-    secret_access_key: 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
+    access_key_id: 
+    secret_access_key:
 
   test:
-    access_key_id: AKIAIRWIXW4G3DOH3O3A
-    secret_access_key: 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
+    access_key_id: 
+    secret_access_key: 
 
   production:
-    access_key_id: AKIAIRWIXW4G3DOH3O3A
-    secret_access_key: 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
+    access_key_id: 
+    secret_access_key: 
